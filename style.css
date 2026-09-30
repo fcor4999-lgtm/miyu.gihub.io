@@ -1,0 +1,240 @@
+/* ===== ОБЩИЕ СТИЛИ ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #ffe4ef 0%, #ffd1e3 100%);
+  color: #6b3a52;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===== ФОН С ЦВЕТОЧКАМИ И СЕРДЕЧКАМИ ===== */
+
+.sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.sky span {
+  position: absolute;
+  font-size: 32px;
+  opacity: 0.85;
+  font-family: Arial, sans-serif;
+}
+
+/* Цветочки (вместо бабочек) */
+.butterfly {
+  color: #ff8fc0;
+  animation: flyUp 15s linear infinite, sway 3s ease-in-out infinite;
+}
+
+/* Сердечки */
+.heart {
+  color: #ff5c9c;
+  animation: flyDown 12s linear infinite, sway 2.5s ease-in-out infinite;
+}
+
+/* Разные стартовые позиции */
+.butterfly:nth-child(1) { left: 10%; animation-delay: 0s; }
+.butterfly:nth-child(2) { left: 30%; animation-delay: 3s; }
+.butterfly:nth-child(3) { left: 55%; animation-delay: 6s; }
+.butterfly:nth-child(4) { left: 80%; animation-delay: 9s; }
+
+.heart:nth-child(5) { left: 20%; animation-delay: 1s; }
+.heart:nth-child(6) { left: 40%; animation-delay: 4s; }
+.heart:nth-child(7) { left: 60%; animation-delay: 2s; }
+.heart:nth-child(8) { left: 75%; animation-delay: 5s; }
+.heart:nth-child(9) { left: 90%; animation-delay: 7s; }
+
+/* Полёт снизу вверх */
+@keyframes flyUp {
+  0%   { transform: translateY(100vh); }
+  100% { transform: translateY(-10vh); }
+}
+
+/* Полёт сверху вниз */
+@keyframes flyDown {
+  0%   { transform: translateY(-10vh); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Покачивание влево-вправо */
+@keyframes sway {
+  0%, 100% { margin-left: -20px; }
+  50%      { margin-left: 20px; }
+}
+
+/* ===== ШАПКА ===== */
+
+.header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #ffb6d5, #ffc9e0);
+  border-bottom: 4px dashed #ff8fc0;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px #ff6fa5;
+  letter-spacing: 3px;
+}
+
+/* Цветочки/сердечки вокруг имени */
+.header h1 span {
+  color: #fff5fa;
+  font-size: 2.5rem;
+  vertical-align: middle;
+}
+
+.subtitle {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+/* ===== НАВИГАЦИЯ ===== */
+
+.nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: #ffd9e8;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #d1467f;
+  background: #fff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+  border: 2px solid #ffb6d5;
+}
+
+.nav a:hover {
+  background: #ff8fc0;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 143, 192, 0.4);
+}
+
+/* ===== КАРТОЧКИ ===== */
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 6px 20px rgba(255, 143, 192, 0.3);
+  border: 3px solid #ffd1e3;
+}
+
+.card h2 {
+  color: #d1467f;
+  margin-bottom: 15px;
+  border-bottom: 2px dotted #ffb6d5;
+  padding-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+/* ===== ГЛАВНАЯ КАРТИНКА ===== */
+
+.main-img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 15px auto;
+  border-radius: 20px;
+  border: 4px solid #ffd1e3;
+  transition: 0.4s;
+}
+
+.main-img:hover {
+  transform: scale(1.03);
+  border-color: #ff8fc0;
+}
+
+/* ===== ГАЛЕРЕЯ ===== */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid #ffd1e3;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  border-color: #ff8fc0;
+  box-shadow: 0 6px 15px rgba(255, 143, 192, 0.4);
+}
+
+/* ===== СПИСОК ДРУЗЕЙ ===== */
+
+.friends-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.friends-list li {
+  background: #ffe4ef;
+  padding: 10px 15px;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid #ffd1e3;
+  transition: 0.3s;
+}
+
+.friends-list li:hover {
+  background: #ffc9e0;
+  transform: translateY(-2px);
+}
+
+/* ===== ПОДВАЛ ===== */
+
+.footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 25px;
+  background: #ffc9e0;
+  color: #fff;
+  margin-top: 40px;
+  border-top: 4px dashed #ff8fc0;
+  letter-spacing: 1px;
+}
